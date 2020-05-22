@@ -17,13 +17,7 @@ public class FragmentWithSettings extends Fragment {
 
     private TextView weightValueTextView;
     private TextView heightValueTextView;
-    private SeekBar weightSeekBar;
-    private SeekBar heightSeekBar;
-    private RadioGroup genderRadioGroup;
-    private RadioButton maleRadioButton;
-    private RadioButton femaleRadioButton;
     private SharedPreferences sharedPref;
-    private Context context;
     private FragmentWithSettings.OnFragmentWithSettingsClickListener listener;
 
     public FragmentWithSettings() {
@@ -34,6 +28,12 @@ public class FragmentWithSettings extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
+        SeekBar weightSeekBar;
+        SeekBar heightSeekBar;
+        RadioGroup genderRadioGroup;
+        RadioButton maleRadioButton;
+        RadioButton femaleRadioButton;
         weightValueTextView = view.findViewById(R.id.weightValueTextView);
         heightValueTextView = view.findViewById(R.id.heightValueTextView);
         weightSeekBar = view.findViewById(R.id.weightSeekBar);
@@ -42,7 +42,7 @@ public class FragmentWithSettings extends Fragment {
         maleRadioButton = view.findViewById(R.id.radioButton_male);
         femaleRadioButton = view.findViewById(R.id.radioButton_female);
 
-        context = getActivity();
+        Context context = getActivity();
         sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 

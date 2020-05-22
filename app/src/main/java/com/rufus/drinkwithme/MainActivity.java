@@ -3,8 +3,6 @@ package com.rufus.drinkwithme;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.ViewGroup;
 
@@ -14,7 +12,6 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
 
     private ViewGroup firstLayout;
     private ViewGroup secondLayout;
-    private SharedPreferences sharedPref;
 
 
     @Override
@@ -23,9 +20,6 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
         setContentView(R.layout.activity_main);
         firstLayout = findViewById(R.id.activity_main_first_container);
         secondLayout = findViewById(R.id.activity_main_second_container);
-        Context context = getApplicationContext();
-        sharedPref = context.getSharedPreferences(
-                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
         if (null == savedInstanceState) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -76,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
 
     @Override
     public void onRefresh() {
-        ((FragmentWithButtons) getSupportFragmentManager().findFragmentByTag(FragmentWithButtons.class.getName())).refreshProgress();
+        ((FragmentWithButtons) getSupportFragmentManager().findFragmentByTag(FragmentWithButtons.class.getName()))
+                .refreshProgress();
     }
 }

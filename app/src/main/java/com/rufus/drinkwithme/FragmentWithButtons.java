@@ -21,15 +21,10 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
     private OnFragmentWithButtonsClickListener listener;
     private TextView commentTextView;
     private ProgressBar progressBar;
-    private Button drinkButton;
-    private Button predictButton;
-    private Button assessButton;
-    private Button clearButton;
     private EditText alcoAmountEditText;
     private Spinner alcoSpinner;
     private TextView progressTextView;
     private SharedPreferences sharedPref;
-    private Context context;
 
     public FragmentWithButtons() {
 
@@ -41,12 +36,12 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
 
         View view = inflater.inflate(R.layout.fragment_buttons, container, false);
 
-        drinkButton = view.findViewById(R.id.drinkButton);
-        predictButton = view.findViewById(R.id.predictButton);
-        assessButton = view.findViewById(R.id.assessButton);
+        Button drinkButton = view.findViewById(R.id.drinkButton);
+        Button predictButton = view.findViewById(R.id.predictButton);
+        Button assessButton = view.findViewById(R.id.assessButton);
+        Button clearButton = view.findViewById(R.id.clearButton);
         commentTextView = view.findViewById(R.id.commentTextView);
         progressBar = view.findViewById(R.id.progressBar);
-        clearButton = view.findViewById(R.id.clearButton);
         progressTextView = view.findViewById(R.id.progressTextView);
         alcoAmountEditText = view.findViewById(R.id.alcoAmountEditText);
         alcoSpinner = view.findViewById(R.id.alcoSpinner);
@@ -56,7 +51,7 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
         assessButton.setOnClickListener(this);
         clearButton.setOnClickListener(this);
 
-        context = getActivity();
+        Context context = getActivity();
         sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 

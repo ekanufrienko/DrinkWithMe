@@ -20,10 +20,9 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
     private Handler uiThreadHandler = new Handler();
     private final Random random = new Random();
     private SharedPreferences sharedPref;
-    Context context;
     private int timeForButtonChange;
     private double countOfchange;
-    int prevButtonNumber;
+    private int prevButtonNumber;
     private int counter = 3;
 
     private TextView textTest1;
@@ -43,7 +42,7 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_test1, container, false);
 
-        context = getActivity();
+        Context context = getActivity();
         sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putBoolean("isCaught", false);
