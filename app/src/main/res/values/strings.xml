@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Drink With Me!</string>
+    <string name="predictButtonText">Predict</string>
+    <string name="drinkButtonText">Drink!</string>
+    <string name="assessButtonText">  Assess mental state  </string>
+    <string name="preference_file_key">com.rufus.drinkwithme.PREFERENCE_FILE_KEY</string>
+    <string-array name="drinks">
+        <item>Beer (4.9%)</item>
+        <item>Champagne (11%)</item>
+        <item>Wine (17%)</item>
+        <item>Vodka (40%)</item>
+        <item>Cognac (40%)</item>
+        <item>Whiskey (40%)</item>
+        <item>Rum (40%)</item>
+        <item>Tequila (40%)</item>
+        <item>Absinthe (70%)</item>
+    </string-array>
+    <string name="step_0_02">  Вы трезвы.  </string>
+    <string name="step_02_03">  В среднем поведение нормальное. Возможны скрытые проявления, которые
+могут быть обнаружены специальными тестами.  </string>
+    <string name="step_03_06">  Данной стадии характерна лёгкая эйфория, расслабление, говорливость.
+    Возможна потеря концентрации.</string>
+    <string name="step_06_1">  Данной стадии характерны притупление ощущений и расторможенность.
+    Ваша способность рассуждать и глубина восприятия пострадали.</string>
+    <string name="step_1_2">  Данной стадии характерны сверх-экспрессивность, сильные переменчивые эмоции,
+    снижение либидо. Ваши рефлексы, моторные навыки, время реакции снижены. Возможны нечленораздельная речь
+    и лёгкое отравление.</string>
+    <string name="step_2_3">  Данной стадии характерны ступор, потеря способности к пониманию, потеря
+    памяти и сознания, тяжёлые нарушения моторики. </string>
+    <string name="step_3_4">  Данной стадии характерны потеря сознание, угнетение функций ЦНС. Возможны
+    проблемы с дыханием, сердцебиением и даже смерть.</string>
+    <string name="step_4_5">  Данной стадии характерны полная утрата контроля за поведением, потеря сознания,
+    проблемы с дыханием и сердцебиением. Есть вероятность смерти.</string>
+    <string name="step_5">  На данной стадии высока вероятность серьёзного отравления или смерти.  </string>
+
+</resources>
