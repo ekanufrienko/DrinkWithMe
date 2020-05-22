@@ -141,9 +141,13 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
         @Override
         public void run() {
             for (ImageButton button : catchButton) {
-                button.setVisibility(View.VISIBLE);
+                if (button.getVisibility()==View.INVISIBLE){
+                    button.setVisibility(View.VISIBLE);
+                    uiThreadHandler.postDelayed(this, 100);
+                    break;
+                }
             }
-            catchButton[11].setVisibility(View.VISIBLE);
+            catchButton[11].setVisibility(View.INVISIBLE);
             nextButton.setVisibility(View.VISIBLE);
         }
     };
@@ -159,6 +163,7 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
         super.onPause();
         uiThreadHandler.removeCallbacks(counterRunnable);
         uiThreadHandler.removeCallbacks(gameRunnable);
+        uiThreadHandler.removeCallbacks(showRunnable);
     }
 
     @Override

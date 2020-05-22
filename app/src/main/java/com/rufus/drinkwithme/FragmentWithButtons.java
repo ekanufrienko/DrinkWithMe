@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import java.util.Locale;
+
 public class FragmentWithButtons extends Fragment implements View.OnClickListener {
 
     private OnFragmentWithButtonsClickListener listener;
@@ -22,7 +24,7 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
     private Button drinkButton;
     private Button predictButton;
     private Button assessButton;
-    private Button refreshButton;
+    private Button clearButton;
     private EditText alcoAmountEditText;
     private Spinner alcoSpinner;
     private TextView progressTextView;
@@ -44,83 +46,96 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
         assessButton = view.findViewById(R.id.assessButton);
         commentTextView = view.findViewById(R.id.commentTextView);
         progressBar = view.findViewById(R.id.progressBar);
-        refreshButton = view.findViewById(R.id.refreshButton);
+        clearButton = view.findViewById(R.id.clearButton);
         progressTextView = view.findViewById(R.id.progressTextView);
         alcoAmountEditText = view.findViewById(R.id.alcoAmountEditText);
-        alcoSpinner= view.findViewById(R.id.alcoSpinner);
+        alcoSpinner = view.findViewById(R.id.alcoSpinner);
 
         drinkButton.setOnClickListener(this);
         predictButton.setOnClickListener(this);
         assessButton.setOnClickListener(this);
-        refreshButton.setOnClickListener(this);
+        clearButton.setOnClickListener(this);
 
         context = getActivity();
         sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-
-        refreshProgress();
+        String[] drinks = getResources().getStringArray(R.array.drinks);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        for (String drink : drinks) {
+            if (!sharedPref.contains(drink)) {
+                editor.putInt(drink, Integer.parseInt(drink.replaceAll("[^0-9]", "")));
+            }
+        }
+        editor.apply();
 
         return view;
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        refreshProgress();
+    }
+
+    @Override
     public void onClick(View v) {
+        SharedPreferences.Editor editor = sharedPref.edit();
         switch (v.getId()) {
             case R.id.assessButton:
                 listener.onStartMakingTest();
                 break;
             case R.id.drinkButton:
-                addPpm();
+                editor.putFloat("alcoMass", (float) (sharedPref.getFloat("alcoMass", 0f)
+                        + sharedPref.getInt(alcoSpinner.getSelectedItem().toString(), 0)
+                        * 0.01 * Float.parseFloat(alcoAmountEditText.getText().toString())));
+                editor.apply();
+                refreshProgress();
                 break;
             case R.id.predictButton:
                 //не реализована
                 break;
-            case R.id.refreshButton:
+            case R.id.clearButton:
+                editor.putFloat("alcoMass", 0f);
+                editor.apply();
                 refreshProgress();
         }
     }
 
-    private void addPpm() {
-        double ppm = sharedPref.getInt("progress", 0);
-        //TODO добавляем напитки
-        String alco = alcoSpinner.getSelectedItem().toString();
-        //double amount = alcoAmountEditText.getText();
+    void refreshProgress() {
 
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt("progress", (int) ppm * 10);
+        float alcoMass = sharedPref.getFloat("alcoMass", 0);
+        float viewmarkCoeff = (sharedPref.getBoolean("isMale", true) ? 0.7f : 0.6f);
+        float ppm = (float) (alcoMass / ((float) sharedPref.getInt("weight", 30) * viewmarkCoeff
+                        + (sharedPref.getInt("height", 30) - 150)* 0.1));
+
+        editor.putFloat("ppm", ppm);
         editor.apply();
-        refreshProgress();
+
+        progressBar.setProgress((int) ppm * 20);
+        alcoAmountEditText.setText("0");
+        progressTextView.setText(String.format(Locale.US, "%.2f", ppm));
+        if (ppm >= 0 && ppm < 0.2) {
+            commentTextView.setText(R.string.step_0_02);
+        } else if (ppm >= 0.2 && ppm < 0.3) {
+            commentTextView.setText(R.string.step_02_03);
+        } else if (ppm >= 0.3 && ppm < 0.6) {
+            commentTextView.setText(R.string.step_03_06);
+        } else if (ppm >= 0.6 && ppm < 1) {
+            commentTextView.setText(R.string.step_06_1);
+        } else if (ppm >= 1 && ppm < 2) {
+            commentTextView.setText(R.string.step_1_2);
+        } else if (ppm >= 2 && ppm < 3) {
+            commentTextView.setText(R.string.step_2_3);
+        } else if (ppm >= 3 && ppm < 4) {
+            commentTextView.setText(R.string.step_3_4);
+        } else if (ppm >= 4 && ppm < 5) {
+            commentTextView.setText(R.string.step_4_5);
+        } else {
+            commentTextView.setText(R.string.step_5);
+        }
     }
-
-    private void refreshProgress() {
-
-            //высчитываем по времени новое количество >=0
-
-            double ppm = sharedPref.getInt("progress", 0);
-            progressBar.setProgress((int) ppm*10);
-            alcoAmountEditText.setText("0");
-            progressTextView.setText(String.format("%.2f", ppm));
-            if (ppm>=0 && ppm <0.2){
-                commentTextView.setText(R.string.step_0_02);}
-            else  if (ppm>=0.2 && ppm <0.3){
-                commentTextView.setText(R.string.step_02_03);
-            } else if (ppm>=0.3 && ppm <0.6){
-                commentTextView.setText(R.string.step_03_06);
-            } else if (ppm>=0.6 && ppm <1){
-                commentTextView.setText(R.string.step_06_1);
-            } else if (ppm>=1 && ppm <2){
-                commentTextView.setText(R.string.step_1_2);
-            } else if (ppm>=2 && ppm <3){
-                commentTextView.setText(R.string.step_2_3);
-            } else if (ppm>=3 && ppm <4){
-                commentTextView.setText(R.string.step_3_4);
-            } else if (ppm>=4 && ppm <5){
-                commentTextView.setText(R.string.step_4_5);
-            } else {
-                commentTextView.setText(R.string.step_5);
-            }
-    };
 
     public interface OnFragmentWithButtonsClickListener {
         void onStartMakingTest();

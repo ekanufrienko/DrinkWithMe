@@ -12,6 +12,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
 public class FragmentWithSettings extends Fragment {
 
     private TextView weightValueTextView;
@@ -23,6 +24,7 @@ public class FragmentWithSettings extends Fragment {
     private RadioButton femaleRadioButton;
     private SharedPreferences sharedPref;
     private Context context;
+    private FragmentWithSettings.OnFragmentWithSettingsClickListener listener;
 
     public FragmentWithSettings() {
         // Required empty public constructor
@@ -44,11 +46,11 @@ public class FragmentWithSettings extends Fragment {
         sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        weightSeekBar.setProgress(sharedPref.getInt("weight", 0));
-        heightSeekBar.setProgress(sharedPref.getInt("height", 0));
-        weightValueTextView.setText(String.valueOf(sharedPref.getInt("weight", 0)));
-        heightValueTextView.setText(String.valueOf(sharedPref.getInt("height", 0)));
-        if (sharedPref.getBoolean("isMale", true)){
+        weightSeekBar.setProgress(sharedPref.getInt("weight", 30));
+        heightSeekBar.setProgress(sharedPref.getInt("height", 30));
+        weightValueTextView.setText(String.valueOf(sharedPref.getInt("weight", 30)));
+        heightValueTextView.setText(String.valueOf(sharedPref.getInt("height", 30)));
+        if (sharedPref.getBoolean("isMale", true)) {
             maleRadioButton.setChecked(true);
         } else {
             femaleRadioButton.setChecked(true);
@@ -61,6 +63,7 @@ public class FragmentWithSettings extends Fragment {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("weight", progress);
                 editor.apply();
+                listener.onRefresh();
             }
 
             @Override
@@ -81,6 +84,7 @@ public class FragmentWithSettings extends Fragment {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putInt("height", progress);
                 editor.apply();
+                listener.onRefresh();
             }
 
             @Override
@@ -99,7 +103,7 @@ public class FragmentWithSettings extends Fragment {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 SharedPreferences.Editor editor = sharedPref.edit();
 
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.radioButton_female:
                         editor.putBoolean("isMale", false);
                         break;
@@ -107,6 +111,7 @@ public class FragmentWithSettings extends Fragment {
                         editor.putBoolean("isMale", true);
                         break;
                 }
+                listener.onRefresh();
                 editor.apply();
             }
         });
@@ -114,4 +119,13 @@ public class FragmentWithSettings extends Fragment {
         return view;
     }
 
+    public interface OnFragmentWithSettingsClickListener {
+        void onRefresh();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        this.listener = (FragmentWithSettings.OnFragmentWithSettingsClickListener) context;
+        super.onAttach(context);
+    }
 }

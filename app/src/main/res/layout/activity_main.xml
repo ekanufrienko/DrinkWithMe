@@ -8,7 +8,7 @@
         android:id="@+id/activity_main_first_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="50"/>
+        android:layout_weight="60"/>
 
     <FrameLayout
         android:id="@+id/activity_main_second_container"

@@ -9,7 +9,8 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 public class MainActivity extends AppCompatActivity implements FragmentWithButtons.OnFragmentWithButtonsClickListener,
-        FragmentTest1.OnFragmentWithTest1ClickListener, FragmentTest2.OnFragmentWithTest2ClickListener {
+        FragmentTest1.OnFragmentWithTest1ClickListener, FragmentTest2.OnFragmentWithTest2ClickListener,
+        FragmentWithSettings.OnFragmentWithSettingsClickListener{
 
     private ViewGroup firstLayout;
     private ViewGroup secondLayout;
@@ -26,11 +27,7 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
         sharedPref = context.getSharedPreferences(
                 getString(R.string.preference_file_key), Context.MODE_PRIVATE);
 
-        if (null != savedInstanceState) {
-
-
-        } else {
-
+        if (null == savedInstanceState) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
             FragmentWithButtons fragment_buttons = new FragmentWithButtons();
@@ -75,5 +72,10 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
     @Override
     public void onTest2Complete() {
 
+    }
+
+    @Override
+    public void onRefresh() {
+        ((FragmentWithButtons) getSupportFragmentManager().findFragmentByTag(FragmentWithButtons.class.getName())).refreshProgress();
     }
 }
