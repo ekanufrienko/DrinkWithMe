@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
         FragmentTest1.OnFragmentWithTest1ClickListener, FragmentTest2.OnFragmentWithTest2ClickListener,
         FragmentWithSettings.OnFragmentWithSettingsClickListener{
 
-    private ViewGroup firstLayout;
     private ViewGroup secondLayout;
 
 
@@ -18,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        firstLayout = findViewById(R.id.activity_main_first_container);
+        ViewGroup firstLayout = findViewById(R.id.activity_main_first_container);
         secondLayout = findViewById(R.id.activity_main_second_container);
 
         if (null == savedInstanceState) {
@@ -53,19 +52,18 @@ public class MainActivity extends AppCompatActivity implements FragmentWithButto
 
     @Override
     public void onTest1Complete(){
-        //FragmentTest2 fragmentTest2 = new FragmentTest2();
-        //transaction.replace(secondLayout.getId(), fragmentTest2, FragmentTest2.class.getName());
-        //transaction.commit();
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        FragmentWithSettings fragment = new FragmentWithSettings();
-        transaction.replace(secondLayout.getId(), fragment, FragmentWithSettings.class.getName());
+        FragmentTest2 fragmentTest2 = new FragmentTest2();
+        transaction.replace(secondLayout.getId(), fragmentTest2, FragmentTest2.class.getName());
         transaction.commit();
     }
 
     @Override
     public void onTest2Complete() {
-
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentWithSettings fragment = new FragmentWithSettings();
+        transaction.replace(secondLayout.getId(), fragment, FragmentWithSettings.class.getName());
+        transaction.commit();
     }
 
     @Override

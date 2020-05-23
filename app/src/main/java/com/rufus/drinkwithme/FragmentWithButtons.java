@@ -108,7 +108,7 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
         editor.putFloat("ppm", ppm);
         editor.apply();
 
-        progressBar.setProgress((int) ppm * 20);
+        progressBar.setProgress((int) (ppm * 20));
         alcoAmountEditText.setText("0");
         progressTextView.setText(String.format(Locale.US, "%.2f", ppm));
         if (ppm >= 0 && ppm < 0.2) {

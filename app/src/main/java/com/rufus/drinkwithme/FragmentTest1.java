@@ -52,8 +52,8 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
         countOfchange = 0;
         timeForButtonChange = 400;
 
-        textTest1 = view.findViewById(R.id.textTest1);
-        nextButton = view.findViewById(R.id.nextButton);
+        textTest1 = view.findViewById(R.id.textTest2);
+        nextButton = view.findViewById(R.id.nextButton_test1);
         counterTextView = view.findViewById(R.id.counterTextView);
         catchButton[0] = view.findViewById(R.id.catchButton);
         catchButton[1] = view.findViewById(R.id.catchButton2);
@@ -78,7 +78,7 @@ public class FragmentTest1 extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.nextButton) {
+        if (v.getId() == R.id.nextButton_test1) {
             listener.onTest1Complete();
         } else {
 

@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/drinkButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/drinkButton" />
+        app:layout_constraintStart_toEndOf="@+id/progressTextView" />
 
     <Button
         android:id="@+id/drinkButton"
@@ -25,7 +25,7 @@
         android:background="@drawable/selector2"
         android:text="@string/drinkButtonText"
         app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintEnd_toStartOf="@+id/predictButton"
+        app:layout_constraintEnd_toStartOf="@+id/progressTextView"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/alcoSpinner"
@@ -47,11 +47,14 @@
         android:id="@+id/commentTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:text=""
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
     <ProgressBar
@@ -63,7 +66,7 @@
         android:layout_marginEnd="60sp"
         android:background="@drawable/progress_bar"
         android:progress="50"
-        app:layout_constraintBottom_toTopOf="@+id/commentTextView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,21 +112,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ppm"
-        app:layout_constraintBottom_toBottomOf="@+id/progressTextView"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toTopOf="@+id/progressTextView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressTextView" />
 
     <TextView
         android:id="@+id/progressTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="@+id/predictButton"
-        app:layout_constraintStart_toStartOf="@+id/predictButton"
-        app:layout_constraintTop_toBottomOf="@+id/predictButton"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintBottom_toBottomOf="@+id/predictButton"
+        app:layout_constraintEnd_toStartOf="@+id/predictButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/drinkButton"
+        app:layout_constraintTop_toTopOf="@+id/predictButton" />
 
     <Button
         android:id="@+id/clearButton"
@@ -135,6 +138,13 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/assessButton"
         app:layout_constraintTop_toTopOf="@+id/assessButton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

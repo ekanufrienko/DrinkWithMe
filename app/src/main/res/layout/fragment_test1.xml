@@ -1,183 +1,176 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+    <ImageButton
+        android:id="@+id/catchButton12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton11"
+        app:layout_constraintTop_toTopOf="@+id/catchButton10" />
 
-    </data>
+    <ImageButton
+        android:id="@+id/catchButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton8"
+        app:layout_constraintTop_toTopOf="@+id/catchButton7" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ImageButton
+        android:id="@+id/catchButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton5"
+        app:layout_constraintTop_toTopOf="@+id/catchButton4" />
 
-        <ImageButton
-            android:id="@+id/catchButton12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton11"
-            app:layout_constraintTop_toTopOf="@+id/catchButton10" />
+    <ImageButton
+        android:id="@+id/catchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/catchButton4"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTest2" />
 
-        <ImageButton
-            android:id="@+id/catchButton9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton8"
-            app:layout_constraintTop_toTopOf="@+id/catchButton7" />
+    <ImageButton
+        android:id="@+id/catchButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton"
+        app:layout_constraintTop_toTopOf="@+id/catchButton" />
 
-        <ImageButton
-            android:id="@+id/catchButton6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton5"
-            app:layout_constraintTop_toTopOf="@+id/catchButton4" />
+    <ImageButton
+        android:id="@+id/catchButton3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton2"
+        app:layout_constraintTop_toTopOf="@+id/catchButton" />
 
-        <ImageButton
-            android:id="@+id/catchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/catchButton4"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textTest1" />
+    <ImageButton
+        android:id="@+id/catchButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/catchButton7"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catchButton" />
 
-        <ImageButton
-            android:id="@+id/catchButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton"
-            app:layout_constraintTop_toTopOf="@+id/catchButton" />
+    <ImageButton
+        android:id="@+id/catchButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton4"
+        app:layout_constraintTop_toTopOf="@+id/catchButton4" />
 
-        <ImageButton
-            android:id="@+id/catchButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton2"
-            app:layout_constraintTop_toTopOf="@+id/catchButton" />
+    <ImageButton
+        android:id="@+id/catchButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/catchButton10"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catchButton4" />
 
-        <ImageButton
-            android:id="@+id/catchButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/catchButton7"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton5"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/catchButton" />
+    <ImageButton
+        android:id="@+id/catchButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton7"
+        app:layout_constraintTop_toTopOf="@+id/catchButton7" />
 
-        <ImageButton
-            android:id="@+id/catchButton5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton4"
-            app:layout_constraintTop_toTopOf="@+id/catchButton4" />
+    <ImageButton
+        android:id="@+id/catchButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/catchButton7" />
 
-        <ImageButton
-            android:id="@+id/catchButton7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/catchButton10"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton8"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/catchButton4" />
+    <ImageButton
+        android:id="@+id/catchButton11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_star"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toStartOf="@+id/catchButton12"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/catchButton10"
+        app:layout_constraintTop_toTopOf="@+id/catchButton10" />
 
-        <ImageButton
-            android:id="@+id/catchButton8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton9"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton7"
-            app:layout_constraintTop_toTopOf="@+id/catchButton7" />
+    <TextView
+        android:id="@+id/textTest2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test №1: Catch crazy guy!"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/catchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/catchButton10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton11"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/catchButton7" />
+    <Button
+        android:id="@+id/nextButton_test1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/catchButton11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/catchButton11"
+        app:layout_constraintTop_toTopOf="@+id/catchButton11" />
 
-        <ImageButton
-            android:id="@+id/catchButton11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_star"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toStartOf="@+id/catchButton12"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/catchButton10"
-            app:layout_constraintTop_toTopOf="@+id/catchButton10" />
+    <TextView
+        android:id="@+id/counterTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="170sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textTest1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Test №1: Catch crazy guy!"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toTopOf="@+id/catchButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/catchButton11"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/catchButton11"
-            app:layout_constraintTop_toTopOf="@+id/catchButton11" />
-
-        <TextView
-            android:id="@+id/counterTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="170sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+</androidx.constraintlayout.widget.ConstraintLayout>
