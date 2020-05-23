@@ -3,6 +3,7 @@ package com.rufus.drinkwithme;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
 
         View view = inflater.inflate(R.layout.fragment_buttons, container, false);
 
-        Button drinkButton = view.findViewById(R.id.drinkButton);
+        final Button drinkButton = view.findViewById(R.id.drinkButton);
         Button predictButton = view.findViewById(R.id.predictButton);
         Button assessButton = view.findViewById(R.id.assessButton);
         Button clearButton = view.findViewById(R.id.clearButton);
@@ -50,6 +51,13 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
         predictButton.setOnClickListener(this);
         assessButton.setOnClickListener(this);
         clearButton.setOnClickListener(this);
+        alcoAmountEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                onClick(drinkButton);
+                return true;
+            }
+        });
 
         Context context = getActivity();
         sharedPref = context.getSharedPreferences(
@@ -103,7 +111,7 @@ public class FragmentWithButtons extends Fragment implements View.OnClickListene
         float alcoMass = sharedPref.getFloat("alcoMass", 0);
         float viewmarkCoeff = (sharedPref.getBoolean("isMale", true) ? 0.7f : 0.6f);
         float ppm = (float) (alcoMass / ((float) sharedPref.getInt("weight", 30) * viewmarkCoeff
-                        + (sharedPref.getInt("height", 30) - 150)* 0.1));
+                + (sharedPref.getInt("height", 30) - 150) * 0.1));
 
         editor.putFloat("ppm", ppm);
         editor.apply();

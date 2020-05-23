@@ -111,8 +111,8 @@ public class FragmentWithSettings extends Fragment {
                         editor.putBoolean("isMale", true);
                         break;
                 }
-                listener.onRefresh();
                 editor.apply();
+                listener.onRefresh();
             }
         });
 

@@ -55,7 +55,9 @@ public class FragmentTest2 extends Fragment implements View.OnClickListener {
         answerEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                onClick(answerButton);
+                if (counter >=0){
+                    onClick(answerButton);
+                }
                 return true;
             }
         });
@@ -100,6 +102,8 @@ public class FragmentTest2 extends Fragment implements View.OnClickListener {
                 String result = "Result: " + rightAnswer + " correct";
                 textTest2.setText(result);
                 nextButton.setVisibility(View.VISIBLE);
+                answerEditText.setCursorVisible(false);
+                answerEditText.setFocusable(false);
             }
         }
     };
