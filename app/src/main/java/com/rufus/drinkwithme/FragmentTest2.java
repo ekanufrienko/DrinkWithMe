@@ -3,6 +3,7 @@ package com.rufus.drinkwithme;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ public class FragmentTest2 extends Fragment implements View.OnClickListener {
 
     private OnFragmentWithTest2ClickListener listener;
     private Handler uiThreadHandler = new Handler();
-    final Random random = new Random();
+    private final Random random = new Random();
 
     private TextView counterTextView;
     private Button answerButton;
@@ -51,6 +52,13 @@ public class FragmentTest2 extends Fragment implements View.OnClickListener {
 
         answerButton.setOnClickListener(this);
         nextButton.setOnClickListener(this);
+        answerEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                onClick(answerButton);
+                return true;
+            }
+        });
 
         rightAnswer = 0;
         counter = 23;
@@ -108,7 +116,7 @@ public class FragmentTest2 extends Fragment implements View.OnClickListener {
         counterRunnable.run();
     }
 
-    String makeExample() {
+    private String makeExample() {
         int y;
         int x;
         String example;
